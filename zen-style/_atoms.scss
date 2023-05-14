@@ -23,6 +23,24 @@
   margin-top: 1em;
   padding-top: 1.5em;
 }
+/* ----------------here professor----- */
+//mixin for colors
+@mixin color($color: $accent1) {
+  background: $color;
+  color: $text-light;
+}
+//mixin for size of the font
+@mixin size($size: 1em) {
+  font-size: $size;
+}
+//misin for borders
+@mixin border($color, $radius) {
+  border: 1px solid $color;
+  border-radius: $radius;
+  }
+@mixin shadow($color) {
+  box-shadow: 0 0 10px $color;
+}
 // these styles here should describe how the atoms (elements) should appear most of the time.  They can be overridden at the molecule (block) as necessary
 h2,
 h3,

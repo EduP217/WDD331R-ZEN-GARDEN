@@ -1,3 +1,22 @@
+@use 'variables' as *;
+//import atoms
+@use 'atoms';
+
+// define heading color with mixins color() from atoms
+@mixin headings($color, $size) {
+  @include atoms.color($color);
+  @include atoms.size($size)
+}
+/* ----------- */
+@mixin cards ($color) {
+  @include atoms.border($accent1, 5px);
+  @include atoms.shadow($color);
+}
+/* h2 {
+  @include atoms.color($accent2);
+  @include atoms.size(1.8rem)
+} */
+
 .intro {
   padding: 5%;
 }
