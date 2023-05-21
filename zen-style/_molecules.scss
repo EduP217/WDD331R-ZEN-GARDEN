@@ -32,11 +32,23 @@ div.page-wrapper {
 
   section#zen-intro {
 
-    &::before {
-      content: url(images/planet-1-mini.png);
-      left: -13%;
-      position: absolute;
-      transform: rotate(0deg);
+    @media (min-width: $break-medium) {
+      &::before {
+        content: url(images/planet-1-mini.png);
+        left: -45%;
+        position: absolute;
+        transform: rotate(150deg);
+      }
+    }
+    @media (min-width: $break-large) {
+      &::before {
+        left: -25%;
+      }
+    }
+    @media (min-width: $break-xlarge) {
+      &::before {
+        left: -15%;
+      }
     }
     header {
       h2 {
@@ -51,7 +63,7 @@ div.page-wrapper {
       &::before {
         content: url(images/galaxy-v1-mini.png);
         position: relative;
-        left: 35%;
+        left: 30%;
       }
     }
   }
@@ -63,9 +75,15 @@ div.page-wrapper {
       &::before {
         content: url(images/galaxy-v1-mini.png);
         position: relative;
-        left: 35%;
+        left: 30%;
       }
     }
+  }
+
+  @media (max-width: $break-medium) {
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
 

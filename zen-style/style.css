@@ -122,11 +122,23 @@ div.page-wrapper {
   padding-top: 10rem;
   padding-bottom: 10rem;
 }
-div.page-wrapper section#zen-intro::before {
-  content: url(images/planet-1-mini.png);
-  left: -13%;
-  position: absolute;
-  transform: rotate(0deg);
+@media (min-width: 31em) {
+  div.page-wrapper section#zen-intro::before {
+    content: url(images/planet-1-mini.png);
+    left: -45%;
+    position: absolute;
+    transform: rotate(150deg);
+  }
+}
+@media (min-width: 60em) {
+  div.page-wrapper section#zen-intro::before {
+    left: -25%;
+  }
+}
+@media (min-width: 80em) {
+  div.page-wrapper section#zen-intro::before {
+    left: -15%;
+  }
 }
 div.page-wrapper section#zen-intro header h2 {
   line-height: 1.25em;
@@ -138,7 +150,7 @@ div.page-wrapper section#zen-intro > div {
 div.page-wrapper section#zen-intro > div::before {
   content: url(images/galaxy-v1-mini.png);
   position: relative;
-  left: 35%;
+  left: 30%;
 }
 div.page-wrapper div#zen-supporting > div {
   padding-top: 5%;
@@ -146,7 +158,14 @@ div.page-wrapper div#zen-supporting > div {
 div.page-wrapper div#zen-supporting > div::before {
   content: url(images/galaxy-v1-mini.png);
   position: relative;
-  left: 35%;
+  left: 30%;
+}
+@media (max-width: 31em) {
+  div.page-wrapper {
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 }
 
 .sidebar {
