@@ -1,4 +1,4 @@
-@use 'variables' as *;
+@use "variables" as *;
 
 // mixins to take care of repeated patterns.
 @mixin set-font($size: 1em, $line-height: normal, $font: $fonts-body) {
@@ -37,45 +37,44 @@
 @mixin border($color, $radius) {
   border: 1px solid $color;
   border-radius: $radius;
-  }
+}
 @mixin shadow($color) {
   box-shadow: 0 0 10px $color;
 }
-// these styles here should describe how the atoms (elements) should appear most of the time.  They can be overridden at the molecule (block) as necessary
-h2,
-h3,
-h4 {
-  font-family: $fonts-headline;
-  margin: 0;
+
+* {
+  box-sizing: border-box;
 }
-h1 {
-  background: $accent1;
+html {
+  background-color: $primary;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: url(images/background-v2.jpg);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  font-family: $fonts-body;
+  font-size: 1em;
   color: $text-light;
-  display: inline-block;
-  font-weight: normal;
-  margin-bottom: 1em;
-  padding: 0.5em 1em;
+
+  margin: 0;
+  padding: 0;
+  text-align: justify;
+}
+
+// these styles here should describe how the atoms (elements) should appear most of the time.  They can be overridden at the molecule (block) as necessary
+h1 {
+  font-size: 2em;
 }
 h2 {
-  color: $text-light;
-  font-weight: 900; /* Heavy */
-  font-size: 6em;
-  letter-spacing: 1px;
-  line-height: 1em;
+  font-size: .75em;
 }
 h3 {
-  font-size: 2.25em;
-  font-weight: 200; /* Thin */
-  letter-spacing: 1px;
-  line-height: 1em;
-  padding: 0.5em 0 0.25em 0;
-}
-h4 {
   font-size: 1.5em;
-  font-weight: 200; /* Thin */
-  letter-spacing: 1px;
-  line-height: 1em;
-  margin: 0.5em 0;
 }
 
 p {
@@ -85,11 +84,71 @@ p {
 }
 
 a {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.45);
   color: $text-dark;
   text-decoration: none;
   transition: border-color 0.2s ease-in-out;
 }
 a:hover {
-  border-color: $accent1;
+  border-color: $accent2;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $text-light;
+  font-family: $fonts-headline;
+  margin-bottom: .5em;
+  text-transform: uppercase;
+}
+
+p {
+  font-family: $fonts-body;
+}
+
+a {
+  text-decoration: none;
+  font-family: $fonts-body;
+  color: $accent2;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+
+  li {
+    list-style: none;
+    font-family: $fonts-body;
+  }
+}
+
+abbr {
+  text-decoration: none;
+  color: $text-dark;
+  background-color: $text-light;
+  padding: 0 2px;
+  margin: 0 2px;
+}
+
+@mixin breakpoint($break) {
+  @if $break == large {
+    @media (max-width: $break-large) {
+      @content;
+    }
+  } @else if $break == medium {
+    @media (max-width: $break-medium) {
+      @content;
+    }
+  } @else if $break == small {
+    @media (max-width: $break-small) {
+      @content;
+    }
+  } @else {
+    @media ($break) {
+      @content;
+    }
+  }
 }

@@ -6,10 +6,15 @@
 
 $fonts-headline: "Monserrat", Arial, Verdana, sans-serif;
 $fonts-body: "Lato", verdana, arial, sans-serif;
-$background-color: #daede2;
 $primary: #0a192f;
 $accent1: #2d4059;
 $accent2: #ffb400;
+$border: #333333;
 $grey-sidebar: rgba(51, 55, 69, 0.9);
-$text-dark: #333;
+$text-dark: #000;
 $text-light: #fff;
+
+$break-small: 20em;
+$break-medium: 31em;
+$break-large: 60em;
+$break-xlarge: 80em;

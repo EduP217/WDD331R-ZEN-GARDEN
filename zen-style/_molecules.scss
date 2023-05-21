@@ -9,14 +9,11 @@
     @include atoms.uppercase($text-light);
   }
 }
-.summary {
+/*.summary {
   @include atoms.uppercase($text-light);
   padding: 15% 0;
   p:last-child {
     @include atoms.divider;
-  }
-  a {
-    color: $text-light; //in this case the link wants to be light instead of the default dark
   }
 }
 .preamble {
@@ -24,6 +21,88 @@
   color: $text-dark;
   margin-left: -30%;
   padding: 5% 5% 5% 30%;
-}
+}*/
 // create mixin for headings
 
+div.page-wrapper {
+  width: 500px;
+  margin: 0 auto;
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+
+  section#zen-intro {
+
+    &::before {
+      content: url(images/planet-1-mini.png);
+      left: -13%;
+      position: absolute;
+      transform: rotate(0deg);
+    }
+    header {
+      h2 {
+        line-height: 1.25em;
+        text-align: right;
+      }
+    }
+
+    > div {
+      padding-top: 5%;
+
+      &::before {
+        content: url(images/galaxy-v1-mini.png);
+        position: relative;
+        left: 35%;
+      }
+    }
+  }
+
+  div#zen-supporting {
+    > div {
+      padding-top: 5%;
+
+      &::before {
+        content: url(images/galaxy-v1-mini.png);
+        position: relative;
+        left: 35%;
+      }
+    }
+  }
+}
+
+.sidebar {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 15%;
+  font-size: .75em;
+
+  .wrapper {
+    padding: 10px;
+    margin-top: 150px;
+    width: 25vh;
+
+    > div {
+      border-bottom: 1px solid #fff;
+      padding-bottom: 1rem;
+    }
+  
+    ul {
+      li {
+        line-height: 1.3em;
+        display: block;
+        padding-top: 5px;
+        margin-bottom: 5px;
+      }
+    }
+  }
+
+  @media (min-width: $break-large) {
+    display: block;
+    right: 3%;
+  }
+
+  @media (min-width: $break-xlarge) {
+    display: block;
+    right: 15%;
+  }
+}

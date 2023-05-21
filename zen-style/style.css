@@ -1,0 +1,187 @@
+/* Import Montserrat */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+/* Import Lato */
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
+/* ----------------here professor----- */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #0a192f;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: url(images/background-v2.jpg);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  font-family: "Lato", verdana, arial, sans-serif;
+  font-size: 1em;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  text-align: justify;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 0.75em;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+p {
+  font-family: "Lato", verdana, arial, sans-serif;
+  font-size: 1em;
+  line-height: 1.5em;
+  padding: 0.5em 0;
+  margin: 0;
+}
+
+a {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.45);
+  color: #000;
+  text-decoration: none;
+  transition: border-color 0.2s ease-in-out;
+}
+
+a:hover {
+  border-color: #ffb400;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #fff;
+  font-family: "Monserrat", Arial, Verdana, sans-serif;
+  margin-bottom: 0.5em;
+  text-transform: uppercase;
+}
+
+p {
+  font-family: "Lato", verdana, arial, sans-serif;
+}
+
+a {
+  text-decoration: none;
+  font-family: "Lato", verdana, arial, sans-serif;
+  color: #ffb400;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+ul li {
+  list-style: none;
+  font-family: "Lato", verdana, arial, sans-serif;
+}
+
+abbr {
+  text-decoration: none;
+  color: #000;
+  background-color: #fff;
+  padding: 0 2px;
+  margin: 0 2px;
+}
+
+[role=banner] > h1 {
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+/*.summary {
+  @include atoms.uppercase($text-light);
+  padding: 15% 0;
+  p:last-child {
+    @include atoms.divider;
+  }
+}
+.preamble {
+  background: rgba(255, 255, 255, 0.9);
+  color: $text-dark;
+  margin-left: -30%;
+  padding: 5% 5% 5% 30%;
+}*/
+div.page-wrapper {
+  width: 500px;
+  margin: 0 auto;
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+}
+div.page-wrapper section#zen-intro::before {
+  content: url(images/planet-1-mini.png);
+  left: -13%;
+  position: absolute;
+  transform: rotate(0deg);
+}
+div.page-wrapper section#zen-intro header h2 {
+  line-height: 1.25em;
+  text-align: right;
+}
+div.page-wrapper section#zen-intro > div {
+  padding-top: 5%;
+}
+div.page-wrapper section#zen-intro > div::before {
+  content: url(images/galaxy-v1-mini.png);
+  position: relative;
+  left: 35%;
+}
+div.page-wrapper div#zen-supporting > div {
+  padding-top: 5%;
+}
+div.page-wrapper div#zen-supporting > div::before {
+  content: url(images/galaxy-v1-mini.png);
+  position: relative;
+  left: 35%;
+}
+
+.sidebar {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 15%;
+  font-size: 0.75em;
+}
+.sidebar .wrapper {
+  padding: 10px;
+  margin-top: 150px;
+  width: 25vh;
+}
+.sidebar .wrapper > div {
+  border-bottom: 1px solid #fff;
+  padding-bottom: 1rem;
+}
+.sidebar .wrapper ul li {
+  line-height: 1.3em;
+  display: block;
+  padding-top: 5px;
+  margin-bottom: 5px;
+}
+@media (min-width: 60em) {
+  .sidebar {
+    display: block;
+    right: 3%;
+  }
+}
+@media (min-width: 80em) {
+  .sidebar {
+    display: block;
+    right: 15%;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
