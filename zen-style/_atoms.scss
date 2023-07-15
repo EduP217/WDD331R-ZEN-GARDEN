@@ -42,9 +42,12 @@
   box-shadow: 0 0 10px $color;
 }
 
-* {
-  box-sizing: border-box;
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
+
 html {
   background-color: $primary;
   margin: 0;
@@ -52,9 +55,9 @@ html {
 }
 
 body {
-  background-image: url(images/background-v2.jpg);
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
+  background-image: url("images/bg-pattern-1.svg"), $bg-gradient-colors;
+  background-size: 260px, auto;
+  background-attachment: fixed;
   background-position: center;
 
   font-family: $fonts-body;
@@ -64,6 +67,8 @@ body {
   margin: 0;
   padding: 0;
   text-align: justify;
+  height: 100%;
+  position: relative;
 }
 
 // these styles here should describe how the atoms (elements) should appear most of the time.  They can be overridden at the molecule (block) as necessary
@@ -150,5 +155,28 @@ abbr {
     @media ($break) {
       @content;
     }
+  }
+}
+
+@keyframes shooting-star {
+  0% {
+    opacity: 0;
+    transform: translateX(0) translateY(0);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(200px) translateY(200px);
+  }
+}
+
+@keyframes galaxy-rotation {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }

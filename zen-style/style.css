@@ -1,10 +1,13 @@
+@charset "UTF-8";
 /* Import Montserrat */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
 /* Import Lato */
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
 /* ----------------here professor----- */
-* {
-  box-sizing: border-box;
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
 
 html {
@@ -14,9 +17,9 @@ html {
 }
 
 body {
-  background-image: url(images/background-v2.jpg);
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
+  background-image: url("images/bg-pattern-1.svg"), linear-gradient(to right, #0f0c29, #302b63, #24243e);
+  background-size: 260px, auto;
+  background-attachment: fixed;
   background-position: center;
   font-family: "Lato", verdana, arial, sans-serif;
   font-size: 1em;
@@ -24,6 +27,8 @@ body {
   margin: 0;
   padding: 0;
   text-align: justify;
+  height: 100%;
+  position: relative;
 }
 
 h1 {
@@ -96,6 +101,27 @@ abbr {
   margin: 0 2px;
 }
 
+@keyframes shooting-star {
+  0% {
+    opacity: 0;
+    transform: translateX(0) translateY(0);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(200px) translateY(200px);
+  }
+}
+@keyframes galaxy-rotation {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 [role=banner] > h1 {
   font-weight: 300;
   letter-spacing: 2px;
@@ -103,103 +129,231 @@ abbr {
   color: #fff;
 }
 
-/*.summary {
-  @include atoms.uppercase($text-light);
-  padding: 15% 0;
-  p:last-child {
-    @include atoms.divider;
-  }
-}
-.preamble {
-  background: rgba(255, 255, 255, 0.9);
-  color: $text-dark;
-  margin-left: -30%;
-  padding: 5% 5% 5% 30%;
-}*/
 div.page-wrapper {
-  width: 500px;
+  width: 400px;
   margin: 0 auto;
-  padding-top: 10rem;
-  padding-bottom: 10rem;
-}
-@media (min-width: 31em) {
-  div.page-wrapper section#zen-intro::before {
-    content: url(images/planet-1-mini.png);
-    left: -45%;
-    position: absolute;
-    transform: rotate(150deg);
-  }
-}
-@media (min-width: 60em) {
-  div.page-wrapper section#zen-intro::before {
-    left: -25%;
-  }
-}
-@media (min-width: 80em) {
-  div.page-wrapper section#zen-intro::before {
-    left: -15%;
-  }
-}
-div.page-wrapper section#zen-intro header h2 {
-  line-height: 1.25em;
-  text-align: right;
-}
-div.page-wrapper section#zen-intro > div {
-  padding-top: 5%;
-}
-div.page-wrapper section#zen-intro > div::before {
-  content: url(images/galaxy-v1-mini.png);
-  position: relative;
-  left: 30%;
-}
-div.page-wrapper div#zen-supporting > div {
-  padding-top: 5%;
-}
-div.page-wrapper div#zen-supporting > div::before {
-  content: url(images/galaxy-v1-mini.png);
-  position: relative;
-  left: 30%;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
 }
 @media (max-width: 31em) {
   div.page-wrapper {
     width: 100%;
     padding-left: 1rem;
     padding-right: 1rem;
+    box-sizing: border-box;
   }
+}
+@media (min-width: 60em) {
+  div.page-wrapper {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+  div.page-wrapper::after {
+    content: "";
+    position: absolute;
+    bottom: 0em;
+    left: 0;
+    width: 50em;
+    height: 30em;
+    background-image: url(images/sun.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    transform: translate(-50%, 0%);
+  }
+}
+@media (min-width: 80em) {
+  div.page-wrapper {
+    padding-top: 10rem;
+    padding-bottom: 20rem;
+  }
+  div.page-wrapper::after {
+    width: 70em;
+    height: 40em;
+  }
+}
+@media (min-width: 31em) {
+  div.page-wrapper section#zen-intro::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30em;
+    height: 60em;
+    background-image: url("images/side-planet.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  div.page-wrapper section#zen-intro::after {
+    content: "";
+    position: absolute;
+    top: 60em;
+    right: 0;
+    width: 450px;
+    height: 450px;
+    background-image: url("images/nubelous.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+@media (min-width: 60em) {
+  div.page-wrapper section#zen-intro::before {
+    width: 40em;
+    height: 70em;
+  }
+}
+@media (min-width: 80em) {
+  div.page-wrapper section#zen-intro::before {
+    width: 70em;
+    height: 100em;
+  }
+}
+div.page-wrapper section#zen-intro header {
+  position: relative;
+  z-index: 2;
+}
+div.page-wrapper section#zen-intro header h1 {
+  margin-bottom: 0.5em;
+  position: relative;
+  color: rgba(255, 255, 255, 0);
+  font-size: 2em;
+  text-align: initial;
+}
+div.page-wrapper section#zen-intro header h1::before {
+  content: "CSSGALAXY\aGARDEN";
+  color: #fff;
+  left: 0;
+  position: absolute;
+  white-space: pre;
+}
+div.page-wrapper section#zen-intro header h1::after {
+  content: "GARDEN";
+  color: #ffb400;
+  left: 0;
+  position: absolute;
+  white-space: pre;
+}
+@media (min-width: 345px) {
+  div.page-wrapper section#zen-intro header h1 {
+    margin-bottom: 1em;
+  }
+  div.page-wrapper section#zen-intro header h1::after {
+    content: "\aGARDEN";
+  }
+}
+@media (min-width: 31em) {
+  div.page-wrapper section#zen-intro header h1 {
+    text-wrap: nowrap;
+    font-size: 2.28em;
+    margin-bottom: 0;
+  }
+  div.page-wrapper section#zen-intro header h1::before {
+    content: "CSSGALAXYGARDEN";
+  }
+  div.page-wrapper section#zen-intro header h1::after {
+    content: "CSS             GARDEN";
+  }
+}
+div.page-wrapper section#zen-intro header h2 {
+  line-height: 1.25em;
+  text-align: right;
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+div.page-wrapper section#zen-intro > div {
+  padding-top: 100px;
+  position: relative;
+}
+div.page-wrapper section#zen-intro > div::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 40%;
+  width: 100px;
+  height: 100px;
+  background-image: url("images/black-hole-2.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  animation: galaxy-rotation 30s cubic-bezier(0.65, 0.05, 0.36, 1) infinite;
+}
+div.page-wrapper div#zen-supporting > div {
+  padding-top: 100px;
+  position: relative;
+}
+div.page-wrapper div#zen-supporting > div::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 40%;
+  width: 100px;
+  height: 100px;
+  background-image: url("images/black-hole-2.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  animation: galaxy-rotation 30s cubic-bezier(0.65, 0.05, 0.36, 1) infinite;
 }
 
 .sidebar {
-  display: none;
-  position: absolute;
-  top: 0;
-  right: 15%;
+  display: block;
   font-size: 0.75em;
+  margin: 0 auto;
+  text-align: left;
 }
 .sidebar .wrapper {
-  padding: 10px;
-  margin-top: 150px;
+  margin-top: 5em;
   width: 25vh;
 }
 .sidebar .wrapper > div {
-  border-bottom: 1px solid #fff;
   padding-bottom: 1rem;
 }
 .sidebar .wrapper ul li {
   line-height: 1.3em;
   display: block;
   padding-top: 5px;
-  margin-bottom: 5px;
+  padding-bottom: 5px;
+}
+.sidebar .wrapper ul li a {
+  border: none;
+}
+.sidebar .wrapper ul li a.design-name {
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #fff;
+  font-weight: bold;
+}
+.sidebar .wrapper ul li a.design-name::after {
+  content: "\a";
+  white-space: pre;
+}
+.sidebar .wrapper div.design-selection h3.select {
+  position: relative;
+}
+.sidebar .wrapper div.design-selection h3.select::before {
+  content: "SELECT";
+  color: #ffb400;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.sidebar .wrapper div.design-selection ul li {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3215686275);
+}
+.sidebar .wrapper div.design-archives ul li a, .sidebar .wrapper div.zen-resources ul li a {
+  color: #fff;
 }
 @media (min-width: 60em) {
   .sidebar {
-    display: block;
-    right: 3%;
+    position: absolute;
+    top: 0;
+  }
+  .sidebar .wrapper {
+    margin-top: 28em;
+    margin-left: 38em;
   }
 }
 @media (min-width: 80em) {
-  .sidebar {
-    display: block;
-    right: 15%;
+  .sidebar .wrapper {
+    margin-top: 30em;
   }
 }
 

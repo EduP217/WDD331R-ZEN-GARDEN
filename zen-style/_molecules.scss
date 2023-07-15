@@ -1,106 +1,194 @@
 @use 'variables' as *;
 @use 'atoms';
 
-// use the mixins from the atoms module to compose our molecules. If you prefer the terminology 'blocks' and 'elements' feel free to use it instead!
-//The base styling we made on our atoms (elements) does most of the work...here we would make any modifications on the elements if they need to appear differently in a certain molecule (block)
 [role="banner"] {
   > h1 {
-    // notice we have to reference the 'atoms' namespace to find our mixins.
     @include atoms.uppercase($text-light);
   }
 }
-/*.summary {
-  @include atoms.uppercase($text-light);
-  padding: 15% 0;
-  p:last-child {
-    @include atoms.divider;
-  }
-}
-.preamble {
-  background: rgba(255, 255, 255, 0.9);
-  color: $text-dark;
-  margin-left: -30%;
-  padding: 5% 5% 5% 30%;
-}*/
-// create mixin for headings
 
 div.page-wrapper {
-  width: 500px;
+  width: 400px;
   margin: 0 auto;
-  padding-top: 10rem;
-  padding-bottom: 10rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+
+  @media (max-width: $break-medium) {
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    box-sizing: border-box;
+  }
+  @media (min-width: $break-large) {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0em;
+      left: 0;
+      width: 50em;
+      height: 30em;
+      background-image: url(images/sun.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+      transform: translate(-50%, 0%);
+    }
+  }
+  @media (min-width: $break-xlarge) {
+    padding-top: 10rem;
+    padding-bottom: 20rem;
+    &::after {
+      width: 70em;
+      height: 40em;
+    }
+  }
 
   section#zen-intro {
 
     @media (min-width: $break-medium) {
       &::before {
-        content: url(images/planet-1-mini.png);
-        left: -45%;
+        content: '';
         position: absolute;
-        transform: rotate(150deg);
+        top: 0;
+        left: 0;
+        width: 30em;
+        height: 60em;
+        background-image: url('images/side-planet.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+      
+      &::after {
+        content: "";
+        position: absolute;
+        top: 60em;
+        right: 0;
+        width: 450px;
+        height: 450px;
+        background-image: url('images/nubelous.png');
+        background-size: cover;
+        background-repeat: no-repeat;
       }
     }
     @media (min-width: $break-large) {
       &::before {
-        left: -25%;
+        width: 40em;
+        height: 70em;
       }
     }
     @media (min-width: $break-xlarge) {
       &::before {
-        left: -15%;
+        width: 70em;
+        height: 100em;
       }
     }
     header {
+      position: relative;
+      z-index: 2;
+
+      h1 {
+        margin-bottom: .5em;
+        position: relative;
+        color: #ffffff00;
+        font-size: 2em;
+        text-align: initial;
+
+        &::before {
+          content: 'CSSGALAXY\aGARDEN';
+          color: $text-light;
+          left: 0;
+          position: absolute;
+          white-space: pre;
+        }
+        &::after {
+          content: 'GARDEN';
+          color: $accent2;
+          left: 0;
+          position: absolute;
+          white-space: pre;
+        }
+
+        @media (min-width: 345px){
+          margin-bottom: 1em;
+          &::after {
+            content: '\aGARDEN';
+          }
+        }
+        @media (min-width: $break-medium) {
+          text-wrap: nowrap;
+          font-size: 2.28em;
+          margin-bottom: 0;
+
+          &::before {
+            content: 'CSSGALAXYGARDEN';
+          }
+          &::after {
+            content: 'CSS\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0GARDEN';
+          }
+        }
+      }
+
       h2 {
         line-height: 1.25em;
         text-align: right;
+        margin-top: 0;
+        margin-bottom: 1em;
       }
     }
 
     > div {
-      padding-top: 5%;
+      padding-top: 100px;
+      position: relative;
 
       &::before {
-        content: url(images/galaxy-v1-mini.png);
-        position: relative;
-        left: 30%;
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 40%;
+        width: 100px;
+        height: 100px;
+        background-image: url('images/black-hole-2.png');
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        animation: galaxy-rotation 30s cubic-bezier(0.65, 0.05, 0.36, 1) infinite;
       }
     }
   }
 
   div#zen-supporting {
     > div {
-      padding-top: 5%;
+      padding-top: 100px;
+      position: relative;
 
       &::before {
-        content: url(images/galaxy-v1-mini.png);
-        position: relative;
-        left: 30%;
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 40%;
+        width: 100px;
+        height: 100px;
+        background-image: url('images/black-hole-2.png');
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        animation: galaxy-rotation 30s cubic-bezier(0.65, 0.05, 0.36, 1) infinite;
       }
     }
-  }
-
-  @media (max-width: $break-medium) {
-    width: 100%;
-    padding-left: 1rem;
-    padding-right: 1rem;
   }
 }
 
 .sidebar {
-  display: none;
-  position: absolute;
-  top: 0;
-  right: 15%;
+  display: block;
   font-size: .75em;
+  margin: 0 auto;
+  text-align: left;
 
   .wrapper {
-    padding: 10px;
-    margin-top: 150px;
+    margin-top: 5em;
     width: 25vh;
 
     > div {
-      border-bottom: 1px solid #fff;
       padding-bottom: 1rem;
     }
   
@@ -109,18 +197,66 @@ div.page-wrapper {
         line-height: 1.3em;
         display: block;
         padding-top: 5px;
-        margin-bottom: 5px;
+        padding-bottom: 5px;
+
+        a {
+          border: none;
+        }
+
+        a.design-name {
+          @include atoms.uppercase($text-light);
+          font-weight: bold;
+          &::after{
+            content: "\a";
+            white-space: pre;
+          }
+        }
+      }
+    }
+
+    div.design-selection {
+      h3.select {
+        position: relative;
+
+        &::before {
+          content: 'SELECT';
+          color: $accent2;
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+      }
+
+      ul {
+        li {
+          border-bottom: 1px solid #ffffff52;
+        }
+      }
+    }
+
+    div.design-archives, div.zen-resources {
+      ul {
+        li a {
+          color: $text-light;
+        }
       }
     }
   }
 
   @media (min-width: $break-large) {
-    display: block;
-    right: 3%;
+    position: absolute;
+    top: 0;
+
+    .wrapper {
+      margin-top: 28em;
+      margin-left: 38em;
+    }
   }
 
   @media (min-width: $break-xlarge) {
-    display: block;
-    right: 15%;
+    .wrapper {
+      margin-top: 30em;
+    }
   }
 }
+
